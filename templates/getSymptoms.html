@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Disease Predictor | Home
+        </title>
+
+    </head>
+
+    <!--
+        Including all CSS Files
+    -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/animateCSS/animate.css-4.1.1/source/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/bootstrapCSS/bootstrap.min.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='imgs/yikg7d5eT.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/bootstrapCSS/bootstrap-reboot.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/bootstrapCSS/bootstrap-grid.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/bootstrap-icons/font/bootstrap-icons.css') }}">
+
+    <!--
+        End of the Including CSS Files
+    -->
+
+    <!--
+        Including all JS Files
+    -->
+
+    <script src="{{ url_for('static', filename='jsFiles/bootstrapJS/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jsFiles/bootstrapJS/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='jsFiles/wow.js/dist/wow.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='jsFiles/jQueryFiles/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='jsFiles/canvasJS/canvasjs.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jsFiles/myJSFiles/playGrapAnimation.js') }}"></script>
+
+    <!--
+        End of the Including JS Files
+    -->
+
+    <script>
+            $(function(){
+                new WOW().init(); 
+            });
+    </script>
+
+    <body>
+        
+        <header class="">
+            <div class="container headerContentArea">
+                <div class="logoContentArea">
+                    <div class="logoArea">
+                        <a href="https://github.com/DJDarkCyber" target="_blank">
+                            <img src="{{ url_for('static', filename='imgs/yikg7d5eT.png') }}" alt="" width="70px" height="70px" class="logoImageLoad">
+                        </a>
+                    </div>
+                </div>
+                <div class="optionsContentArea">
+                    <div class="optionsArea">
+                        <a href="{{ url_for('main') }}" class="optionLinks">Home</a>
+                        <a href="{{ url_for('displayDiseases') }}" class="optionLinks">Diseases</a>
+                        <a href="{{ url_for('healthAdvices') }}" class="optionLinks">Health Advices</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        
+        <div class="getUserDiseases">
+            <p style="font-size: 23px; color: red; font-weight: 1000;">Hey {{userName}},</p> 
+            <h5>Please select the symptoms below</h5>
+            <div class="getDiseaseSympCont">
+                <form action="{{ url_for('predictedDisease') }}" method="post">
+                    Symptom 1: 
+                    <select name="SYMP1" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp1Len) %}
+                            <option value="{{symp1Vals[i]}}">{{symp1Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 2: 
+                    <select name="SYMP2" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp2Len) %}
+                            <option value="{{symp2Vals[i]}}">{{symp2Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 3: 
+                    <select name="SYMP3" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp3Len) %}
+                            <option value="{{symp3Vals[i]}}">{{symp3Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 4: 
+                    <select name="SYMP4" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp4Len) %}
+                            <option value="{{symp4Vals[i]}}">{{symp4Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 5: 
+                    <select name="SYMP5" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp5Len) %}
+                            <option value="{{symp5Vals[i]}}">{{symp5Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 6: 
+                    <select name="SYMP6" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp6Len) %}
+                            <option value="{{symp6Vals[i]}}">{{symp6Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 7: 
+                    <select name="SYMP7" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp7Len) %}
+                            <option value="{{symp7Vals[i]}}">{{symp7Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 8:
+                    <select name="SYMP8" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp8Len) %}
+                            <option value="{{symp8Vals[i]}}">{{symp8Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 9:
+                    <select name="SYMP9" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp9Len) %}
+                            <option value="{{symp9Vals[i]}}">{{symp9Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 10: 
+                    <select name="SYMP10" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp10Len) %}
+                            <option value="{{symp10Vals[i]}}">{{symp10Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 11: 
+                    <select name="SYMP11" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp11Len) %}
+                            <option value="{{symp11Vals[i]}}">{{symp11Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 12: 
+                    <select name="SYMP12" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp12Len) %}
+                            <option value="{{symp12Vals[i]}}">{{symp12Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 13: 
+                    <select name="SYMP13" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp13Len) %}
+                            <option value="{{symp13Vals[i]}}">{{symp13Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 14: 
+                    <select name="SYMP14" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp14Len) %}
+                            <option value="{{symp14Vals[i]}}">{{symp14Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 15: 
+                    <select name="SYMP15" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp15Len) %}
+                            <option value="{{symp15Vals[i]}}">{{symp15Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 16: 
+                    <select name="SYMP16" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp16Len) %}
+                            <option value="{{symp16Vals[i]}}">{{symp16Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    Symptom 17: 
+                    <select name="SYMP17" id="" required class="button-30">
+                        <option value="">--SELECT--</option>
+                        {% for i in range(0, symp17Len) %}
+                            <option value="{{symp17Vals[i]}}">{{symp17Vals[i]}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="text" value="{{ userName }}" style="display: none;" name="USRNAME">
+                    <div class="submitButtonAreaGS">
+                        <input type="submit" class="button-45">
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+        
+
+    </body>
+</html>

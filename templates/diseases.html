@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Disease Predictor | Home
+        </title>
+
+    </head>
+
+    <!--
+        Including all CSS Files
+    -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/animateCSS/animate.css-4.1.1/source/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/bootstrapCSS/bootstrap.min.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='imgs/yikg7d5eT.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/bootstrapCSS/bootstrap-reboot.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/bootstrapCSS/bootstrap-grid.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/bootstrap-icons/font/bootstrap-icons.css') }}">
+
+    <!--
+        End of the Including CSS Files
+    -->
+
+    <!--
+        Including all JS Files
+    -->
+
+    <script src="{{ url_for('static', filename='jsFiles/bootstrapJS/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jsFiles/bootstrapJS/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='jsFiles/wow.js/dist/wow.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='jsFiles/jQueryFiles/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='jsFiles/canvasJS/canvasjs.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jsFiles/myJSFiles/playGrapAnimation.js') }}"></script>
+
+    <!--
+        End of the Including JS Files
+    -->
+
+    <script>
+            $(function(){
+                new WOW().init(); 
+            });
+    </script>
+
+    <body>
+        
+        <header class="">
+            <div class="container headerContentArea">
+                <div class="logoContentArea">
+                    <div class="logoArea">
+                        <a href="https://github.com/DJDarkCyber" target="_blank">
+                            <img src="{{ url_for('static', filename='imgs/yikg7d5eT.png') }}" alt="" width="70px" height="70px" class="logoImageLoad">
+                        </a>
+                    </div>
+                </div>
+                <div class="optionsContentArea">
+                    <div class="optionsArea">
+                        <a href="{{ url_for('main') }}" class="optionLinks">Home</a>
+                        <a href="{{ url_for('displayDiseases') }}" class="optionLinks activeLink">Diseases</a>
+                        <a href="{{ url_for('healthAdvices') }}" class="optionLinks">Health Advices</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="displayDiseasesCont">
+            {% for i in range(0, lenOfDisease) %}
+                <div class="displayDisease">
+                    {{diseases[i]}}
+                </div>
+                <div class="displayDiseaseDesc">
+                    {{descriptions[i]}}
+                </div>
+            {% endfor %}
+        </div>
+        
+        
+
+    </body>
+</html>
